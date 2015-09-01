@@ -269,9 +269,9 @@ var FactoryGuyTestHelper = Ember.Object.create({
    @param {Object} options  hash of options for handling request
    */
   handleCreate: function (modelName, options) {
-    var url = this.buildURL(modelName);
-    var store = this.getStore();
     var opts = options === undefined ? {} : options;
+    var url = opts.url || this.buildURL(modelName);
+    var store = this.getStore();
     return new MockCreateRequest(url, store, modelName, opts);
   },
 
